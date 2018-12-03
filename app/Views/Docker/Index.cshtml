@@ -1,0 +1,29 @@
+@{
+
+  ViewData["Title"] = "Docker";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div>
+<p>Test .Net core application</p>
+</div>
+<div>
+  <form action="/Docker/List" >
+    <label for="dname">Docker Image Name</label>
+    <input type="text" id="dname" name="dockername" placeholder="docker:latest ..">
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<!-- <div>
+  <form id="form1" runat="server" method="post" action="">
+    <label for="yeard">Enter the year:</label>
+    <input type="text" name="user_name" value="" /><br />
+    <br />
+    <input ID="btnAjax" runat="server" type="submit" value='Get User' onclick="callAjaxMethod(event)" onkeypress="callAjaxMethod(event)" class="submit" />
+  </form>
+  <div>
+    Result: <asp:TextBox ID="txtIsLeapYear" runat="server"></asp:TextBox></td>
+  </div>
+</div> -->

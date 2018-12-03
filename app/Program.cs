@@ -15,9 +15,7 @@ using System.Net.Http.Headers;
 namespace app
 {
     class Program
-    {
-
-        static HttpClient client = new HttpClient();
+    {   
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");

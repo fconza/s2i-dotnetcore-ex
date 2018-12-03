@@ -3,31 +3,35 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Mvc;
 using app.Models;
 
 
 namespace app.Controllers
 {
-    public class DockerController : Controller
+    public class NpmController : Controller
     {
 
-       // [System.Web.Services.WebMethod]
-        public static bool GetUser(string name)       
+/*        // [System.Web.Services.WebMethod]
+        public static string GetUser(string name)       
         {
         
-        return DateTime.IsLeapYear(year);
+        return name;
         
+        } */
+
+        public IActionResult Index()
+        {
+            ViewData["Message"] = "Validation of Npm packages";
+
+            return View();
         }
 
-
-
-
-        public IActionResult Docker()
+        public IActionResult List(string npmname)
         {
-            ViewData["Message"] = "Validation of Docker images";
-
-
+            ViewData["Message"] = "Npm packages";
+            ViewData["npmname"] = HtmlEncoder.Default.Encode(npmname);
             return View();
         }
 
