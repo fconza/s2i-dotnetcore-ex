@@ -1,0 +1,65 @@
+<script type="text/javascript">
+function callAjaxMethod(e) {
+//To prevent postback from happening as we are ASP.Net TextBox control
+//If we had used input html element, there is no need to use ' e.preventDefault()' as posback will not happen
+ 
+  e.preventDefault();
+ 
+  $.ajax({
+    type: "POST",
+    url: "/Docker/GetUser",
+    data: '{year: "' + $("#<%=txtYear.ClientID%>").val() + '" }',
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (response) {
+      if (response.d) {
+         $('#<%=txtIsLeapYear.ClientID%>').val('Leap Year');
+      }
+      else {
+        $('#<%=txtIsLeapYear.ClientID%>').val('Not a Leap Year');
+      }
+    },
+    failure: function (response) {
+      $('#<%=txtIsLeapYear.ClientID%>').val("Error in calling Ajax:" + response.d);
+    }
+  });
+}
+</script>
+
+
+
+@{
+    ViewData["Title"] = "Docker";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div>
+<p>Test .Net core application</p>
+</div>
+<div>
+  <form action="/Docker/Docker">
+    <label for="dname">Docker Image Name</label>
+    <input type="text" id="dname" name="dockername" placeholder="docker:latest ..">
+
+<!--     <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select> -->
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<div>
+  <form id="form1" runat="server" method="post" action="">
+    <label for="yeard">Enter the year:</label>
+    <input type="text" name="user_name" value="" /><br />
+    <br />
+    <input ID="btnAjax" runat="server" type="submit" value='Get User' onclick="callAjaxMethod(event)" onkeypress="callAjaxMethod(event)" class="submit" />
+  </form>
+  <div>
+    Result: <asp:TextBox ID="txtIsLeapYear" runat="server"></asp:TextBox></td>
+  </div>
+</div>

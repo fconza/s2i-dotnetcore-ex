@@ -6,14 +6,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using app.Models;
 
+
 namespace app.Controllers
 {
-    public class App1Controller : Controller
+    public class DockerController : Controller
     {
 
-        public IActionResult Application1()
+       // [System.Web.Services.WebMethod]
+        public static bool GetUser(string name)       
         {
-            ViewData["Message"] = "Test of First Application.";
+        
+        return DateTime.IsLeapYear(year);
+        
+        }
+
+
+
+
+        public IActionResult Docker()
+        {
+            ViewData["Message"] = "Validation of Docker images";
+
 
             return View();
         }
