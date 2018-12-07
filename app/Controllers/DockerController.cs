@@ -20,6 +20,7 @@ using System.Runtime.Serialization.Json;
 
 namespace app.Controllers
 {
+    [Authorize]
     public class DockerController : Controller
     {
         private static readonly HttpClient client = new HttpClient();

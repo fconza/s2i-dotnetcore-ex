@@ -10,6 +10,7 @@ using app.Models;
 
 namespace app.Controllers
 {
+    [Authorize]
     public class NpmController : Controller
     {
 

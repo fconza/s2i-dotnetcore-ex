@@ -8,6 +8,7 @@ using app.Models;
 
 namespace app.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
