@@ -1,0 +1,19 @@
+@{
+  ViewData["Title"] = "Identity";
+  Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div>
+<p>Test .Net core application</p>
+</div>
+<div>
+  <form  asp-area="Identity" asp-controller="Account" asp-action="Login" method="post">
+    <label for="dname">Credential</label>
+    <input type="text" name="login" placeholder="your login ..">
+    <input type="password" name="password" placeholder="your password ..">
+    <input type="submit" value="Submit">
+  </form>
+</div>

@@ -1,0 +1,22 @@
+@{
+  Layout = "~/Views/Shared/_layout.cshtml";
+  ViewData["Title"] = "Docker";
+}
+@model app.Areas.Docker.Models.repoUser
+
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div>
+<p>Find following Docker images for : @ViewData["dockername"]</p>
+<table style="width:50%">
+  <tr>
+    <th rowspan="2"><img src="@Model.Avatar" alt="Avatar Image" width="50" height="50"></th>
+    <td>Name : @Model.Name </td>
+  </tr>
+  <tr>
+    <td>Email : @Model.Email </td>
+  </tr>
+</table>
+</div>
+
